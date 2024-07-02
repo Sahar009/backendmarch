@@ -1,0 +1,6 @@
+npm init to initialize
+mongodb
+mongoose
+env
+dev123
+mongodb+srv://dev:dev123@cluster0.afiqe8r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
