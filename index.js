@@ -26,7 +26,7 @@ var numberOne = 3
 var numberTwo = 4
 
 console.log(numberOne % numberTwo);
-
+var dev ="dev"
 
 // data types in javascript
 // 1. string
