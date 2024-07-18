@@ -28,6 +28,8 @@ const app = express()
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
 const productRoute = require('./Routes/productRoutes')
+const UserRoute = require('./Routes/userRoute')
+const cors =require('cors')
 
 
 app.get('/',(req,res) =>{
@@ -37,10 +39,12 @@ res.send('server home page')
 // middleware
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(cors({origin:true}))
 
 
 
 app.use('/',productRoute)
+app.use('/',UserRoute )
 
 
 
