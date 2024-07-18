@@ -42,7 +42,7 @@ const RegisterController = expressHandler(async (req, res) => {
     });
 
     const body = `Welcome ${createdUser.fullName}, thank you for registering with us.`;
-    sendMail(createdUser.email, 'Register', body);
+    sendMail(email, 'Register', body);
 
     const token = generateToken(createdUser._id);
     res.cookie("token", token, {
@@ -80,7 +80,9 @@ const LoginController = expressHandler(async (req, res) => {
     if (userExist && passwordIsCorrect) {
         const { _id, email, fullName } = userExist;
         const token = generateToken(_id);
-
+        var date = new Date()
+      
+sendMail(userExist.email,'Login request',`<p>you have successfully logged in at ${date}</p>`)
         return res.status(200).json({
             _id, email, fullName, token
         });
