@@ -1,9 +1,13 @@
 const ProductModel = require('../Models/Product')
+const cloudinary = require('cloudinary').v2
 
-
+cloudinary.config({
+  
+})
 // create product controller
 const createProduct = async(req,res)=>{
 const {name,price,color}=req.body
+// console.log(req.file);
 try {
     
 

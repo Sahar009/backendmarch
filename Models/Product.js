@@ -15,6 +15,9 @@ const productSchema = mongoose.Schema({
         type:String,
         required:[true,'color must be required'],
         default:"as seen in the picture"
+    },
+    image:{
+       type:String,
     }
 })
 

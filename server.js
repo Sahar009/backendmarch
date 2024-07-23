@@ -30,22 +30,27 @@ const dotenv = require('dotenv').config()
 const productRoute = require('./Routes/productRoutes')
 const UserRoute = require('./Routes/userRoute')
 const cors =require('cors')
-
+const path = require('path')
+const serverPath = path.resolve(__dirname,'server.js')
+require(serverPath)
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser') 
 
 app.get('/',(req,res) =>{
 res.send('server home page')
 })
 
 // middleware
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+app.use(cookieParser())
+// app.use(bodyParser())
 app.use(cors({origin:true}))
-
+app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
 
 app.use('/',productRoute)
 app.use('/',UserRoute )
-
 
 
 
@@ -60,4 +65,6 @@ mongoose.connect(process.env.MONGO_URL)
 }).catch((error) =>{
 console.log(error);
 })
+
+
 
